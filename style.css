@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    margin: 0;
+    width:60vw;
+    position:fixed;
+    left:20vw;
+    background-image: url('https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?cs=srgb&dl=pexels-francesco-ungaro-396547.jpg&fm=jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+
+}
+#chat-container {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f44f;
+    
+}
+.chat-message {
+    max-width: 60%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+    clear: both;
+}
+.user-message {
+    background-color: #dcf8c6;
+    align-self: flex-end;
+    text-align: right;
+}
+.assistant-message {
+    background-color: #f1f0f0;
+    align-self: flex-start;
+    font-family: system-ui;
+}
+#input-container {
+    display: flex;
+    padding: 0px 0px;
+    
+}
+#input-container input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background:#ffffffcf;
+}
+#input-container button {
+    padding: 10px;
+    margin-left: 0px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 10%;
+}
+.typing {
+    font-style: italic;
+    color: #888;
+}
+#header {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: #ffffffcf;
+    color: white;
+    padding-left:10px;
+}
+#header div {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: black;
+    border: 2px solid #007bff;
+}
+#header h1 {
+    font-size: 1.5em;
+    margin: 0;
+    font-family: cursive;
+    background: linear-gradient(to right, #121FCF 0%, #CF1512 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+#sidebar {
+    width: 240px;
+    background: #f1f0f091;
+    padding: 0px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+#sidebar-heading{
+    background-color: #007bff;
+    font-size: 1.5em;
+    padding: 8px;
+    font-family: sans-serif;
+    font-weight: 700;
+    color:#f1f0f0
+}
+#chat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.conversation {
+    cursor: pointer;
+    padding: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color:white;
+}
+.conversation:hover {
+    background-color: #007bff;
+    color: #f1f0f0;
+}
+.active{
+    background-color: #007bff;
+    color: #f1f0f0;
+}
+
+.loader {
+        border: 4px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 4px solid black;
+        width: 35px;
+        height: 35px;
+        animation: spin 0.5s linear infinite;
+        display: none;
+        margin: 50px auto;
+        position:relative;
+}
+    
+@keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+}
