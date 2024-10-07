@@ -48,7 +48,22 @@ function sendMessage() {
     });
 }
 
+function formatHeadings(input) {
+    let formattedString = input.replace(/\*\*(.*?)\*\*/g, '$1');
+    return makeHeadingsBold(formattedString);
+}
+
+function makeHeadingsBold(text) {
+    const regex = /(\d+\.\s+[^\n]*?:)/g;
+    let boldedText = text.replace(regex, (match) => {
+        return `<strong>${match}</strong>`;
+    });
+    boldedText = boldedText.replace(/\n/g, '<br>');
+    return boldedText;
+}
+
 function addMessageToChat(sender, message) {
+    message = formatHeadings(message);
     const chatContainer = document.getElementById('chat-container');
     const messageElement = document.createElement('div');
     messageElement.classList.add('chat-message');
@@ -57,7 +72,7 @@ function addMessageToChat(sender, message) {
     } else {
         messageElement.classList.add('assistant-message');
     }
-    messageElement.innerText = message;
+    messageElement.innerHTML = message;
 
 
     chatContainer.appendChild(messageElement);
