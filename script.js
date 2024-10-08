@@ -3,6 +3,9 @@ const urlParams = new URLSearchParams(queryString);
 if(urlParams.get('uid')){
     localStorage.setItem('auth',urlParams.get('uid'))
 }
+if(localStorage.getItem('prompt')){
+    document.getElementById('prompt').value = localStorage.getItem('prompt');
+}
 document.getElementById('send-button').addEventListener('click', sendMessage);
 document.getElementById('message-input').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
@@ -12,6 +15,12 @@ document.getElementById('message-input').addEventListener('keypress', function (
 
 function sendMessage() {
     const input = document.getElementById('message-input');
+    const prompt = document.getElementById('prompt').value.trim();
+    if(!prompt){
+        alert("Please write a valid Prompt")
+        return;
+    }
+    localStorage.setItem("prompt",prompt);
     const message = input.value.trim();
     if (message === '') return;
 
@@ -23,7 +32,7 @@ function sendMessage() {
     showTypingAnimation();
 
     // Send message to the assistant
-    fetch('http://ec2-3-106-224-103.ap-southeast-2.compute.amazonaws.com:7800/api/miraconvo/ask', {
+    fetch('http://ec2-3-106-224-103.ap-southeast-2.compute.amazonaws.com:7800/api/miraconvo/ask3', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -31,7 +40,8 @@ function sendMessage() {
         },
         body: JSON.stringify({
             question: message,
-            conversation_id: sessionStorage.getItem('convoid')
+            conversation_id: sessionStorage.getItem('convoid'),
+            prompt: prompt
             
         })
     })
@@ -56,7 +66,7 @@ function formatHeadings(input) {
 function makeHeadingsBold(text) {
     const regex = /(\d+\.\s+[^\n]*?:)/g;
     let boldedText = text.replace(regex, (match) => {
-        return `<strong>${match}</strong>`;
+        return `<strong>${match}</strong>\n`;
     });
     boldedText = boldedText.replace(/\n/g, '<br>');
     return boldedText;

@@ -3,29 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIRA Chat</title>
+    <title>MIRA PLAYGROUND</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="sidebar">
-        <div id="sidebar-heading">Conversations</div>
-        <div id="conversation-list">
+    <aside>
+        <h2>Prompt</h2>
+        <textarea id="prompt" placeholder="write your customized prompt here..."></textarea>
+    </aside>
+    <div id="main">
+        <div id="sidebar">
+            <div id="sidebar-heading">Conversations</div>
+            <div id="conversation-list">
+            </div>
+        </div>
+        <div id="chat">
+            <div id="header">
+                <div></div>
+                <h1>MIRA PLAYGROUND</h1>
+            </div>
+            <div id="chat-container">
+                <div class="loader" id="loader"></div>
+            </div>
+            
+            <div id="input-container">
+                <input type="text" id="message-input" placeholder="Type a message...">
+                <button id="send-button">Send</button>
+            </div>
         </div>
     </div>
-    <div id="chat">
-        <div id="header">
-            <div></div>
-            <h1>MIRA</h1>
-        </div>
-        <div id="chat-container">
-            <div class="loader" id="loader"></div>
-        </div>
-        
-        <div id="input-container">
-            <input type="text" id="message-input" placeholder="Type a message...">
-            <button id="send-button">Send</button>
-        </div>
-    </div>
+    
 
     <script src="script.js"></script>
 </body>
