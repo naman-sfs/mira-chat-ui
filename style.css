@@ -2,48 +2,16 @@ body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: row;
-    background-image: url('https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?cs=srgb&dl=pexels-francesco-ungaro-396547.jpg&fm=jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin: 0;
-}
-#main{
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: row;
     height: 100vh;
     margin: 0;
     width:60vw;
     position:fixed;
-    left:30vw;
-}
-aside{
-    width:30vw;
-    position:absolute;
-    left:0vw;
-    height: 100vh;
-}
-aside h2{
-    font-family: sans-serif;
-    font-weight: 700;
-    color:#f1f0f0;
-}
-textarea{
-    width: 95%;
-    height: 90%;
-    background: transparent;
-    border: none;
-    font-size: 14px;
-    color: white;
-}
-textarea:focus {
-    outline: none;
-    border-color: transparent; /* If you want to hide the border */
-}
-textarea::placeholder{
-    color: white;
-    font-style: italic; /* Make placeholder italic */
-    font-size: 16px; /* Change font size of the placeholder */
+    left:20vw;
+    background-image: url('https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?cs=srgb&dl=pexels-francesco-ungaro-396547.jpg&fm=jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+
 }
 #chat-container {
     flex: 1;

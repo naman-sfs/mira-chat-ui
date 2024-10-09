@@ -3,9 +3,6 @@ const urlParams = new URLSearchParams(queryString);
 if(urlParams.get('uid')){
     localStorage.setItem('auth',urlParams.get('uid'))
 }
-if(localStorage.getItem('prompt')){
-    document.getElementById('prompt').value = localStorage.getItem('prompt');
-}
 document.getElementById('send-button').addEventListener('click', sendMessage);
 document.getElementById('message-input').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
@@ -15,12 +12,6 @@ document.getElementById('message-input').addEventListener('keypress', function (
 
 function sendMessage() {
     const input = document.getElementById('message-input');
-    const prompt = document.getElementById('prompt').value.trim();
-    if(!prompt){
-        alert("Please write a valid Prompt")
-        return;
-    }
-    localStorage.setItem("prompt",prompt);
     const message = input.value.trim();
     if (message === '') return;
 
@@ -32,7 +23,7 @@ function sendMessage() {
     showTypingAnimation();
 
     // Send message to the assistant
-    fetch('http://ec2-3-106-224-103.ap-southeast-2.compute.amazonaws.com:7800/api/miraconvo/ask3', {
+    fetch('http://ec2-3-106-224-103.ap-southeast-2.compute.amazonaws.com:7800/api/miraconvo/ask', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -40,8 +31,7 @@ function sendMessage() {
         },
         body: JSON.stringify({
             question: message,
-            conversation_id: sessionStorage.getItem('convoid'),
-            prompt: prompt
+            conversation_id: sessionStorage.getItem('convoid')
             
         })
     })
@@ -66,7 +56,7 @@ function formatHeadings(input) {
 function makeHeadingsBold(text) {
     const regex = /(\d+\.\s+[^\n]*?:)/g;
     let boldedText = text.replace(regex, (match) => {
-        return `<strong>${match}</strong>\n`;
+        return `<strong>${match}</strong>`;
     });
     boldedText = boldedText.replace(/\n/g, '<br>');
     return boldedText;
@@ -74,6 +64,7 @@ function makeHeadingsBold(text) {
 
 function addMessageToChat(sender, message) {
     message = formatHeadings(message);
+    message = message.includes("Conclusion:") ? message.replace("Conclusion:", "<strong>Conclusion:</strong>") : message;
     const chatContainer = document.getElementById('chat-container');
     const messageElement = document.createElement('div');
     messageElement.classList.add('chat-message');
