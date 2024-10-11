@@ -146,3 +146,103 @@ body {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
 }
+
+
+.chat-bubble {
+    background-color:#f1f0f0;
+    padding:12px;
+    -webkit-border-radius: 20px;
+    -webkit-border-bottom-left-radius: 2px;
+    -moz-border-radius: 20px;
+    -moz-border-radius-bottomleft: 2px;
+    border-radius: 20px;
+    border-bottom-left-radius: 2px;
+    display:inline-block;
+    width: fit-content;
+  }
+  .typing {
+    align-items: end;
+    display: flex;
+    height: 17px;
+  }
+  .typing .dot {
+    animation: mercuryTypingAnimation 1.8s infinite ease-in-out;
+    margin-right: 4px;
+    vertical-align: middle;
+    display: inline-block;
+    font-family:sans-sarif;
+    font-weight:500;
+    font-size:20px;
+    color: #6CAD96;
+  }
+  
+  .typing .dot1 {
+    animation: mercuryTypingAnimation1 1.8s infinite ease-in-out;
+    background-color: #6CAD96 ;
+    border-radius: 50%;
+    height: 7px;
+    margin-right: 4px;
+    vertical-align: middle;
+    width: 7px;
+    display: inline-block;
+  }
+  .typing .dot:nth-child(1) {
+    animation-delay: 200ms;
+  }
+  .typing .dot:nth-child(2) {
+    animation-delay: 250ms;
+  }
+  .typing .dot:nth-child(3) {
+    animation-delay: 300ms;
+  }
+  .typing .dot:nth-child(4) {
+    animation-delay: 350ms;
+  }
+  .typing .dot:nth-child(5) {
+    animation-delay: 400ms;
+  }
+  .typing .dot:nth-child(6) {
+    animation-delay: 450ms;
+  }
+  .typing .dot:nth-child(7) {
+    animation-delay: 500ms;
+  }
+  .typing .dot:nth-child(8) {
+    animation-delay: 550ms;
+  }
+  .typing .dot:nth-child(9) {
+    animation-delay: 600ms;
+  }
+  
+  .typing .dot:last-child {
+    margin-right: 0;
+  }
+  
+  @keyframes mercuryTypingAnimation {
+    0% {
+      transform: translateY(0px);
+    }
+    28% {
+      transform: translateY(-7px);
+      
+    }
+    44% {
+      transform: translateY(0px);
+      
+    }
+  }
+  
+  @keyframes mercuryTypingAnimation1 {
+    0% {
+      transform: translateY(0px);
+      background-color:#6CAD96; 
+    }
+    28% {
+      transform: translateY(-15px);
+      background-color:#9ECAB9;
+    }
+    44% {
+      transform: translateY(0px);
+      background-color: #B5D9CB;
+    }
+  }

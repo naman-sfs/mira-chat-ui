@@ -20,7 +20,7 @@ function sendMessage() {
     input.value = '';
 
     // Show typing animation
-    showTypingAnimation();
+    showTypingAnimation1();
 
     // Send message to the assistant
     fetch('http://ec2-3-106-224-103.ap-southeast-2.compute.amazonaws.com:7800/api/miraconvo/ask', {
@@ -88,6 +88,31 @@ function showTypingAnimation() {
     typingElement.id = 'typing-animation';
 
     chatContainer.appendChild(typingElement);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+function showTypingAnimation1() {
+    const chatContainer = document.getElementById('chat-container');
+    const typingElement = `
+    <div class="chat-bubble" id="typing-animation">
+        <div class="typing">
+            <div class="dot">t</div>
+            <div class="dot">y</div>
+            <div class="dot">p</div>
+            <div class="dot">i</div>
+            <div class="dot">n</div>
+            <div class="dot">g</div>
+            <div class="dot dot1"></div>
+            <div class="dot dot1"></div>
+            <div class="dot dot1"></div>
+        </div>
+    </div>
+    `
+    // typingElement.classList.add('chat-message', 'assistant-message', 'typing');
+    // typingElement.textContent = 'MIRA is typing...';
+    //typingElement.id = 'typing-animation';
+
+    chatContainer.innerHTML += typingElement;
     chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
