@@ -96,6 +96,18 @@ function showTypingAnimation1() {
     const typingElement = `
     <div class="chat-bubble" id="typing-animation">
         <div class="typing">
+            <div class="dot">M</div>
+            <div class="dot">I</div>
+            <div class="dot">R</div>
+            <div class="dot">A</div>
+
+            <div class="dot"></div>
+
+            <div class="dot">i</div>
+            <div class="dot">s</div>
+
+            <div class="dot"></div>
+            
             <div class="dot">t</div>
             <div class="dot">y</div>
             <div class="dot">p</div>
@@ -161,7 +173,7 @@ async function fetchConversations() {
 async function loadConversation(conversationId,element) {
     const chatContainer = document.getElementById('chat-container');
     chatContainer.innerHTML = '<div class="loader" id="loader"></div>';
-    document.getElementById('loader').style.display = 'block';
+    document.getElementById('loader').style.display = "block";
     
     const myHeaders = new Headers();
     myHeaders.append("Authorization", localStorage.getItem('auth'));

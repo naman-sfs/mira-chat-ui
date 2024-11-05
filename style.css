@@ -26,18 +26,21 @@ body {
     max-width: 60%;
     padding: 10px;
     margin: 5px 0;
-    border-radius: 10px;
     clear: both;
 }
 .user-message {
     background-color: #dcf8c6;
     align-self: flex-end;
     text-align: right;
+    border-radius: 20px;
+    border-bottom-right-radius: 2px;
 }
 .assistant-message {
     background-color: #f1f0f0;
     align-self: flex-start;
     font-family: system-ui;
+    border-radius: 20px;
+    border-bottom-left-radius: 2px;
 }
 #input-container {
     display: flex;
@@ -136,13 +139,13 @@ body {
         border-top: 4px solid black;
         width: 35px;
         height: 35px;
-        animation: spin 0.5s linear infinite;
+        animation: spin2 0.5s linear infinite;
         display: none;
         margin: 50px auto;
         position:relative;
 }
     
-@keyframes spin {
+@keyframes spin2 {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
 }
@@ -166,13 +169,13 @@ body {
     height: 17px;
   }
   .typing .dot {
-    animation: mercuryTypingAnimation 1.8s infinite ease-in-out;
+    
     margin-right: 4px;
     vertical-align: middle;
     display: inline-block;
     font-family:sans-sarif;
     font-weight:500;
-    font-size:20px;
+    font-size:18px;
     color: #6CAD96;
   }
   
@@ -211,16 +214,42 @@ body {
     animation-delay: 550ms;
   }
   .typing .dot:nth-child(9) {
-    animation-delay: 600ms;
+    animation-delay: 150ms;
   }
   
+  .typing .dot:nth-child(10) {
+    animation-delay: 200ms;
+  }
+  .typing .dot:nth-child(11) {
+    animation-delay: 250ms;
+  }
+  .typing .dot:nth-child(12) {
+    animation-delay: 300ms;
+  }
+  .typing .dot:nth-child(13) {
+    animation-delay: 350ms;
+  }
+  .typing .dot:nth-child(14) {
+    animation-delay: 400ms;
+  }
+  .typing .dot:nth-child(15) {
+    animation-delay: 450ms;
+  }
+  .typing .dot:nth-child(16) {
+    animation-delay: 500ms;
+  }
+  .typing .dot:nth-child(17) {
+    animation-delay: 550ms;
+  }
   .typing .dot:last-child {
     margin-right: 0;
   }
   
+  
   @keyframes mercuryTypingAnimation {
     0% {
       transform: translateY(0px);
+
     }
     28% {
       transform: translateY(-7px);
@@ -245,4 +274,42 @@ body {
       transform: translateY(0px);
       background-color: #B5D9CB;
     }
+  }
+
+
+  #spin {
+    color: #6CAD96;
+    font-weight: 500;
+    font-family: sans-serif;
+    font-size: 18px;
+  }
+  #spin:after {
+    content:"";
+    animation: spin 30s ease-in-out;
+  }
+
+  @keyframes spin {
+    0%{
+      content: "Reading Query";
+    }
+
+    10%{
+      content: 'Updating History';
+    }
+
+    25%{
+      content: "Analyzing";
+    }
+
+    50%{
+      content:"Working on it"
+    }
+    66%{
+      content: "Generating Response";
+    }
+
+    100%{
+      content: "Please wait";
+    }
+
   }
